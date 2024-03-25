@@ -13,6 +13,7 @@
 #define NUM_L 2
 #define MED_L 3
 #define FUN_L 4
+#define QWERTY_BASE
 
 / {
     tap_dances {
