@@ -154,9 +154,9 @@ macros {
         qwerty_layer {
             bindings = <
        &gresc           &kp Q      &kp W      &kp E       &kp R                 &kp T         &kp Y            &kp U                 &kp I       &kp O      &kp P     &kp LBKT
-       &mt LCTRL TAB    &kp A      &kp S      &kp D       &mt LSHIFT F          &kp G         &kp H            &mt LSHIFT J          &kp K       &kp L      &kp QUOT  &kp SQT
+       &mt LCTRL TAB    &kp A      &kp S      &kp D       &mt LSHIFT F          &kp G         &kp H            &mt LSHIFT J          &kp K       &kp L      &kp SEMI  &kp SQT
        &mo MED_L        &kp Z      &kp X      &kp C       &kp V                 &kp B         &kp N            &td0                &kp COMMA   &kp DOT    &kp FSLH  &mt LALT DEL
-                                          &kp LGUI   &mo NAV_L      &kp SPACE      &kp SPACE  &lt NUM_L RET &kp BACKSPACE
+                                          &kp LGUI   &mo NAV_L      &mt LCTRL SPACE      &mt LCTRL SPACE  &lt NUM_L RET &kp BACKSPACE
             >;
         };
 #else
