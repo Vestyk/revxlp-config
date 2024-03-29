@@ -191,7 +191,7 @@ macros {
         media_layer {
             bindings = <
 &none      &none  &none  &none     &none   &none        &macro_1       &none               &kp UP         &none            &none            &none
-&none      &none  &none  &none     &none   &none        macro_prsr     &kp LEFT            &kp DOWN       &kp RIGHT_ARROW  &kp RIGHT_SHIFT  &none
+&none      &none  &none  &none     &none   &none        &macro_prsr     &kp LEFT            &kp DOWN       &kp RIGHT_ARROW  &kp RIGHT_SHIFT  &none
 &kp LSHFT  &none  &none  &none     &none   &none        &none          &kp PAGE_DOWN       &kp PAGE_UP    &trans           &none            &none
                          &kp LGUI  &trans  &kp SPACE    &kp RET        &mt LEFT_ALT ENTER  &kp BACKSPACE
             >;
