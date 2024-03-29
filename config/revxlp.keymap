@@ -34,6 +34,42 @@
         };
     };
 
+macros {
+        macro_1: macro_1 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LS(P) &kp LS(O) &kp LS(L) &kp J &kp I &kp N9 &kp N8 &kp AMPS &kp U &kp K>;
+            label = "MACRO_1";
+        };
+
+        macro_2: macro_2 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LCTRL &kp LEFT_ALT>,
+                <&macro_tap>,
+                <&kp DELETE>,
+                <&macro_release>,
+                <&kp LCTRL &kp LALT>;
+
+            label = "MACRO_2";
+        };
+
+        macro_prsr: macro_prsr {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LGUI &kp LEFT_SHIFT>,
+                <&macro_tap>,
+                <&kp S>,
+                <&macro_release>,
+                <&kp LEFT_GUI &kp LEFT_SHIFT>;
+
+            label = "MACRO_PRSR";
+        };
+    };
     cond_layers {
         compatible = "zmk,conditional-layers";
 	tri {
@@ -44,6 +80,11 @@
 
     combos {
         compatible = "zmk,combos";
+
+        lang_swap {
+            bindings = <&kp LG(SPACE)>;
+            key-positions = <44 45>;
+        };
 
 	l_curly_bracket {
 	    timeout-ms = <50>;
@@ -114,8 +155,8 @@
             bindings = <
        &gresc           &kp Q      &kp W      &kp E       &kp R                 &kp T         &kp Y            &kp U                 &kp I       &kp O      &kp P     &kp LBKT
        &mt LCTRL TAB    &kp A      &kp S      &kp D       &mt LSHIFT F          &kp G         &kp H            &mt LSHIFT J          &kp K       &kp L      &kp QUOT  &kp SQT
-       &kp LSHFT        &kp Z      &kp X      &kp C       &kp V                 &kp B         &kp N            &td0                &kp COMMA   &kp DOT    &kp SEMI  &mt LALT DEL
-                                          &kp LGUI   &mo NAV_L      &shifty      &kp SPACE  &mo NUM_L &none
+       &mo MED_L        &kp Z      &kp X      &kp C       &kp V                 &kp B         &kp N            &td0                &kp COMMA   &kp DOT    &kp FSLH  &mt LALT DEL
+                                          &kp LGUI   &mo NAV_L      &kp SPACE      &kp SPACE  &lt NUM_L RET &kp BACKSPACE
             >;
         };
 #else
@@ -124,35 +165,35 @@
        &none        &kp Q      &kp W      &kp F       &kp P          &kp B         &kp J            &kp L          &kp U       &kp Y      &kp QUOT &none
        &none        &kp A      &kp R      &kp S       &kp T          &kp G         &kp M            &kp N          &kp E       &kp I      &kp O    &none
        &none        &kp Z      &kp X      &kp C       &kp D          &kp V         &kp K            &kp H          &kp COMMA   &kp DOT    &kp SEMI &none     
-                                          &none       &mo NAV_L      &shifty      &kp SPACE        &mo NUM_L &none
+                                          &none       &mo NAV_L      &shifty      &kp SPACE        &mo NUM_L  &kp BACKSPACE
             >;
         };
 #endif
 
         nav_layer {
             bindings = <
-       &none         &trans     &trans     &trans      &trans          &trans       &kp GRAVE        &kp TAB        &kp GRAVE   &kp BKSP   &kp DEL &none
-       &none         &sk LSHFT  &sk LALT   &sk LCTRL   &sk LGUI        &trans       &kp TAB          &kp LARW       &kp DARW    &kp UARW   &kp RARW &none
-       &none         &trans     &trans     &trans      &trans          &trans       &trans           &kp HOME       &kp PG_DN   &kp PG_UP  &kp END &none
-                                           &none  &trans          &trans       &kp RET          &trans &none
+&kp TAB    &kp N1       &kp N2     &kp N3     &kp N4                    &kp N5       &kp N6     &kp N7     &kp N8           &kp N9    &kp N0    &kp DEL
+&kp LCTRL  &kp EXCL     &kp AT     &kp HASH   &mt LSHIFT DOLLAR         &kp PRCNT    &kp CARET  &kp AMPS   &kp KP_MULTIPLY  &kp LPAR  &kp RPAR  &none
+&kp LSHFT  &macro_prsr  &kp PG_UP  &kp PG_DN  &kp LS(NON_US_BACKSLASH)  &kp MINUS    &kp PLUS   &kp EQUAL  &kp UNDER        &none     &trans    &none
+                                   &kp LGUI   &none                     &kp SPACE    &kp SPACE  &trans     &kp BACKSPACE
             >;
         };
 
         num_layer {
             bindings = <
-       &none         &kp ESC   &kp N7     &kp N8      &kp N9          &kp RBKT      &trans        &trans         &trans      &trans     &trans &none
-       &none         &kp MINUS  &kp N4     &kp N5      &kp N6          &kp EQUAL     &trans        &sk LGUI       &sk LCTRL      &sk LALT     &sk LSHFT &none
-       &none         &kp PLUS  &kp N1     &kp N2      &kp N3          &kp N0        &bt BT_SEL 0  &bt BT_SEL 1   &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4 &none
-                                          &none   &trans          &trans        &trans        &trans &none
+&kp TAB    &kp F1  &kp F2   &kp F3    &kp F4    &macro_2     &kp CARET  &kp AMPS   &kp KP_MULTIPLY  &kp LPAR  &kp RPAR  &kp BSPC
+&kp LCTRL  &kp F5  &kp F6   &kp F7    &kp F8    &none        &kp MINUS  &kp EQUAL  &kp LBKT         &kp RBKT  &kp BSLH  &kp GRAVE
+&kp LSHFT  &kp F9  &kp F10  &kt F11   &kp F12   &none        &kp UNDER  &kp PLUS   &kp LBRC         &kp RBRC  &kp PIPE  &kp TILDE
+                            &kp LGUI  &kp LALT  &kp SPACE    &kp RET    &trans     &kp RALT
             >;
         };
 
         media_layer {
             bindings = <
-       &bt BT_CLR    &trans     &trans     &trans      &trans          &trans       &trans           &kp C_PREV     &kp C_VOL_DN     &kp C_VOL_UP &kp C_NEXT &none
-       &none         &trans     &trans     &trans      &trans          &trans       &trans           &trans         &trans           &trans       &trans &none
-       &none         &trans     &trans     &trans      &trans          &trans       &trans           &trans         &kp C_PLAY_PAUSE &kp C_MUTE       &trans &none
-                                           &none  &trans          &trans       &trans           &trans &none
+&none      &none  &none  &none     &none   &none        &macro_1       &none               &kp UP         &none            &none            &none
+&none      &none  &none  &none     &none   &none        macro_prsr     &kp LEFT            &kp DOWN       &kp RIGHT_ARROW  &kp RIGHT_SHIFT  &none
+&kp LSHFT  &none  &none  &none     &none   &none        &none          &kp PAGE_DOWN       &kp PAGE_UP    &trans           &none            &none
+                         &kp LGUI  &trans  &kp SPACE    &kp RET        &mt LEFT_ALT ENTER  &kp BACKSPACE
             >;
         };
     };
