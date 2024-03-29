@@ -83,7 +83,7 @@ macros {
 
         lang_swap {
             bindings = <&kp LG(SPACE)>;
-            key-positions = <44 45>;
+            key-positions = <28 29>;
         };
 
 	l_curly_bracket {
