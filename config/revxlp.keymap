@@ -70,22 +70,26 @@ macros {
             label = "MACRO_PRSR";
         };
     };
-    cond_layers {
-        compatible = "zmk,conditional-layers";
-	tri {
-	    if-layers = <NUM_L NAV_L>;
-	    then-layer = <MED_L>;
-        };
-    };
+//cond_layers {
+//        compatible = "zmk,conditional-layers";
+//	tri {
+//	    if-layers = <NUM_L NAV_L>;
+//	    then-layer = <MED_L>;
+ //       };
+//    };
 
     combos {
         compatible = "zmk,combos";
 
         lang_swap {
             bindings = <&kp LG(SPACE)>;
-            key-positions = <28 29>;
+            key-positions = <27 28>;
         };
 
+  lvl_swap {
+            bindings = <&mo MED_L>;
+            key-positions = <3 4>;
+        };
 	l_curly_bracket {
 	    timeout-ms = <50>;
             key-positions = <2 14>;
@@ -154,9 +158,9 @@ macros {
         qwerty_layer {
             bindings = <
        &gresc           &kp Q      &kp W      &kp E       &kp R                 &kp T         &kp Y            &kp U                 &kp I       &kp O      &kp P     &kp LBKT
-       &mt LCTRL TAB    &kp A      &kp S      &kp D       &mt LSHIFT F          &kp G         &kp H            &mt LSHIFT J          &kp K       &kp L      &kp SEMI  &kp SQT
-       &mo MED_L        &kp Z      &kp X      &kp C       &kp V                 &kp B         &kp N            &td0                &kp COMMA   &kp DOT    &kp FSLH  &mt LALT DEL
-                                          &kp LGUI   &mo NAV_L      &mt LCTRL SPACE      &mt LCTRL SPACE  &lt NUM_L RET &kp BACKSPACE
+       &kp TAB    &kp A      &kp S      &kp D       &mt LSHIFT F          &kp G         &kp H            &mt LSHIFT J          &kp K       &kp L      &kp SEMI  &kp SQT
+       &kp TILDE  &kp Z      &kp X      &kp C       &kp V                 &kp B         &kp N            &td0                &kp COMMA   &kp DOT    &kp FSLH  &mt LALT DEL
+                                          &kp LGUI   &mo NAV_L      &mt LCTRL SPACE      &kp SPACE  &lt NUM_L RET &kp BACKSPACE
             >;
         };
 #else
@@ -191,8 +195,8 @@ macros {
         media_layer {
             bindings = <
 &none      &none  &none  &none     &none   &none        &macro_1       &none               &kp UP         &none            &none            &none
-&none      &none  &none  &none     &none   &none        &macro_prsr     &kp LEFT            &kp DOWN       &kp RIGHT_ARROW  &kp RIGHT_SHIFT  &none
-&kp LSHFT  &none  &none  &none     &none   &none        &none          &kp PAGE_DOWN       &kp PAGE_UP    &trans           &none            &none
+&none      &none  &none  &none     &none   &none        &macro_prsr    &kp LEFT            &kp DOWN       &kp RIGHT_ARROW  &kp RIGHT_SHIFT  &none
+&kp LSHFT  &none  &none  &none     &none   &none        &macro_2       &kp PAGE_DOWN       &kp PAGE_UP    &trans           &none            &none
                          &kp LGUI  &trans  &kp SPACE    &kp RET        &mt LEFT_ALT ENTER  &kp BACKSPACE
             >;
         };
